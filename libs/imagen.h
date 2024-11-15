@@ -1,3 +1,6 @@
+#ifndef IMAGEN_H
+#define IMAGEN_H
+
 typedef unsigned char byt;
 
 // inline int min(int a, int b) {
@@ -174,3 +177,5 @@ class Imagen {
   }
 
 };
+
+#endif
