@@ -1,3 +1,6 @@
+#ifndef OBJREADER_H
+#define OBJREADER_H
+
 #include <string>
 #include <vector>
 #include <fstream>
@@ -39,3 +42,5 @@ class Obj {
   void leerCara(stringstream &ss, int ln);
 
 };
+
+#endif
