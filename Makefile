@@ -17,7 +17,7 @@ $(OUT): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(OUT) $(LIBS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS) $(OUT)
