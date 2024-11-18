@@ -89,6 +89,20 @@ class Vector4 {
     // this->w = w;
   }
 
+  /**
+   * @brief Devuelve la distancia euclidiana entre dos vectores.
+   * @param u Primer vector.
+   * @param v Segundo vector.
+   * @return double Distancia euclidiana entre u y v.
+   */
+  static double distance(const Vector4& u, const Vector4& v) {
+    return sqrt(
+      pow(v.x - u.x, 2) +
+      pow(v.y - u.y, 2) +
+      pow(v.z - u.z, 2) +
+      pow(v.w - u.w, 2)
+    );
+  }
 };
 
 /**
