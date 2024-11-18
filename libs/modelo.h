@@ -9,7 +9,7 @@ using namespace std;
 
 class Modelo {
   public:
-  vector<Vector4> vertices;
+  vector<Vector4> verticesCam;
   vector<pair<int, int>> pixeles;
   vector<vector<int>> caras;
 
@@ -18,19 +18,20 @@ class Modelo {
     this->obj = objp;
     for (Puntof p : (*objp).vertices)
     {
-      verticesOG.push_back(Vector4(p.x, p.y, p.z, p.w));
+      verticesModelo.push_back(Vector4(p.x, p.y, p.z, p.w));
     }
-    vertices = verticesOG;
-    pixeles.resize(verticesOG.size());
+    verticesCam = verticesModelo;
+    pixeles.resize(verticesModelo.size());
     caras = (*objp).caras;
   };
 
   void toScreen(Matrix4 &vista, int w, int h);
   void restoreVertices();
+  void transform(Matrix4 &transform);
 
   private:
   Obj* obj;
-  vector<Vector4> verticesOG;
+  vector<Vector4> verticesModelo;
 };
 
 #endif
