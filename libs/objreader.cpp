@@ -4,6 +4,14 @@
 
 using namespace std;
 
+float absf(float n)
+{
+  if (n >= 0)
+    return n;
+  else
+    return -n;
+}
+
 Obj::Obj(string filedir) : filedir(filedir)
 {
   // this->filedir = filedir;
@@ -136,4 +144,99 @@ void Obj::imprimir()
     cout << f << endl;
   }
   cout << endl;
+}
+
+Puntof Obj::centroProm()
+{
+  float cx = 0.0f;
+  float cy = 0.0f;
+  float cz = 0.0f;
+  float cw = 0.0f;
+
+  for (Puntof v : vertices)
+  {
+    cx += v.x;
+    cy += v.y;
+    cz += v.z;
+    cw += v.w;
+  }
+
+  float l = (float)vertices.size();
+
+  Puntof c;
+  c.x = cx/l;
+  c.y = cy/l;
+  c.z = cz/l;
+  c.w = cw/l;
+
+  return c;
+}
+
+pair<float, float> Obj::minmaxx()
+{
+  float maxx = vertices[0].x;
+  float minx = vertices[0].x;
+
+  for (Puntof v : vertices)
+  {
+    if (v.x > maxx)
+      maxx = v.x;
+
+    if (v.x < minx)
+      minx = v.x;
+  }
+
+  return make_pair(maxx, minx);
+}
+
+ pair<float, float> Obj::minmaxy()
+{
+  float maxy = vertices[0].y;
+  float miny = vertices[0].y;
+
+  for (Puntof v : vertices)
+  {
+    if (v.y > maxy)
+      maxy = v.y;
+
+    if (v.y < miny)
+      miny = v.y;
+  }
+
+  return make_pair(maxy, miny);
+}
+
+pair<float, float> Obj::minmaxz()
+{
+  float maxz = vertices[0].z;
+  float minz = vertices[0].z;
+
+  for (Puntof v : vertices)
+  {
+    if (v.z > maxz)
+      maxz = v.z;
+
+    if (v.z < minz)
+      minz = v.z;
+  }
+
+  return make_pair(maxz, minz);
+}
+
+float Obj::anchox()
+{
+  pair<float, float> mm = minmaxx();
+  return absf(mm.first - mm.second);
+}
+
+float Obj::anchoy()
+{
+  pair<float, float> mm = minmaxy();
+  return absf(mm.first - mm.second);
+}
+
+float Obj::anchoz()
+{
+  pair<float, float> mm = minmaxz();
+  return absf(mm.first - mm.second);
 }

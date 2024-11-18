@@ -27,6 +27,11 @@ class Obj {
   void cerrar();
   void leer();
   void imprimir();
+  // Puntof centro();
+  Puntof centroProm();
+  float anchox();
+  float anchoy();
+  float anchoz();
 
   // Obj(Obj &&) = default;
   // Obj(const Obj &) = default;
@@ -40,6 +45,9 @@ class Obj {
 
   void leerVertice(stringstream &ss, int ln);
   void leerCara(stringstream &ss, int ln);
+  pair<float, float> minmaxx();
+  pair<float, float> minmaxy();
+  pair<float, float> minmaxz();
 
 };
 
