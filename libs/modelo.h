@@ -29,6 +29,8 @@ class Modelo {
   void restoreVertices();
   void transform(Matrix4 &transform);
 
+  size_t indiceVerticeCara(vector<int> &cara, size_t i);
+
   private:
   Obj* obj;
   vector<Vector4> verticesModelo;

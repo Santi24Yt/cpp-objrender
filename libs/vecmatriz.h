@@ -90,6 +90,16 @@ class Vector4 {
   }
 
   /**
+   * @brief Devuelve la resta de dos vectores.
+   * @param u Primer vector.
+   * @param v Segundo vector.
+   * @return Vector4 Resultado de la resta de u y v.
+   */
+  static Vector4 subtract(const Vector4& u, const Vector4& v) {
+    return Vector4(u.x - v.x, u.y - v.y, u.z - v.z, u.w - v.w);
+  }
+
+  /**
    * @brief Devuelve la distancia euclidiana entre dos vectores.
    * @param u Primer vector.
    * @param v Segundo vector.
@@ -103,6 +113,8 @@ class Vector4 {
       pow(v.w - u.w, 2)
     );
   }
+
+  Vector3 toVector3 ();
 };
 
 /**

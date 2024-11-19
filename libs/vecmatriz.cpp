@@ -80,3 +80,7 @@ Vector4 Matrix4::multiplyVector(const Vector4& v) const {
     a03*v.x + a13*v.y + a23*v.z + a33*v.w
   );
 }
+
+Vector3 Vector4::toVector3 () {
+  return Vector3(x, y, z);
+}

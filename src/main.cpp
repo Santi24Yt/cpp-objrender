@@ -52,7 +52,7 @@ int main (int argc, char *argv[])
   Matrix4 look = Matrix4::lookAt(cam, centroCubo, Vector3(0, 1, 0));
   Matrix4 persp = Matrix4::perspective(60, (float)img1.width/img1.height, 0, 100);
   // Matrix4 orth = Matrix4::orthographic(2, -2, -2, 2, -2, 2);
-  //
+
   int rotspeedy = 2;
   int rotspeedx = 0;
   int rotspeedz = 0;
@@ -243,6 +243,7 @@ int main (int argc, char *argv[])
             vista = Matrix4::multiply(look, persp);
             break;
           default:
+            // window.close();
             break;
         }
       }
@@ -291,18 +292,22 @@ int main (int argc, char *argv[])
     for (size_t i = 0; i < modelo1.caras.size(); i += (1 << optimize))
     {
       vector<int> cara = modelo1.caras[i];
+
+      size_t i1 = modelo1.indiceVerticeCara(cara, 0);
+      size_t i2 = modelo1.indiceVerticeCara(cara, 1);
+      size_t i3 = modelo1.indiceVerticeCara(cara, 2);
+      Vector3 v1 = Vector4::subtract(modelo1.verticesCam[i2-1], modelo1.verticesCam[i1-1]).toVector3();
+      Vector3 v2 = Vector4::subtract(modelo1.verticesCam[i3-1], modelo1.verticesCam[i1-1]).toVector3();
+
+      Vector3 norm = Vector3::cross(v1, v2);
+
+      if (norm.z < 0)
+        continue;
+
       for (size_t j = 1; j < cara.size(); j++)
       {
-        long ip1 = cara[j-1];
-        size_t i1 = ip1;
-        long ip2 = cara[j];
-        size_t i2 = ip2;
-
-        if (ip1 < 0)
-          i1 = 1 + modelo1.verticesCam.size() + ip1;
-        if (ip2 < 0)
-          i2 = 1 + modelo1.verticesCam.size() + ip2;
-
+        size_t i1 = modelo1.indiceVerticeCara(cara, j-1);
+        size_t i2 = modelo1.indiceVerticeCara(cara, j);
         pair<int, int> p1 = modelo1.pixeles[i1-1];
         pair<int, int> p2 = modelo1.pixeles[i2-1];
         int x1 = p1.first;
@@ -317,16 +322,8 @@ int main (int argc, char *argv[])
 
         if (j == cara.size()-1)
         {
-          long ip1 = cara[j];
-          size_t i1 = ip1;
-          long ip2 = cara[0];
-          size_t i2 = ip2;
-
-          if (ip1 < 0)
-            i1 = 1 + modelo1.verticesCam.size() + ip1;
-          if (ip2 < 0)
-            i2 = 1 + modelo1.verticesCam.size() + ip2;
-
+          size_t i1 = modelo1.indiceVerticeCara(cara, j);
+          size_t i2 = modelo1.indiceVerticeCara(cara, 0);
           pair<int, int> p1 = modelo1.pixeles[i1-1];
           pair<int, int> p2 = modelo1.pixeles[i2-1];
           int x1 = p1.first;
