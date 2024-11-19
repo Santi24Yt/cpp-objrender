@@ -1,3 +1,18 @@
+Para compilar:
+$ make
+
+Para ejecutar:
+$ ./objrender [.obj] [optimizacion]
+
+Se puede indicar la dirección de un archivo .obj ej.
+$ ./objrender ../objs/dragon.obj
+
+También se puede indicar un nivel de optimizacion (ver README.md)
+$ ./objrender ../objs/dragon.obj 8
+
+Clean:
+$ make clean
+
 Ejes:
 rojo = eje x
 verde = eje y
@@ -32,3 +47,5 @@ up = - eje x
 down + eje x
 space = + eje y
 shift = - eje y
+Cambio de modelo a cubo/restaurar:
+m = cambio
