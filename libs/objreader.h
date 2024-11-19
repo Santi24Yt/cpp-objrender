@@ -20,6 +20,7 @@ class Obj {
   public:
   vector<Puntof> vertices;
   vector<vector<int>> caras;
+  string filedir;
 
   Obj(string filedir);
 
@@ -40,7 +41,6 @@ class Obj {
   // ~Obj();
 
   private:
-  string filedir;
   ifstream file;
 
   void leerVertice(stringstream &ss, int ln);

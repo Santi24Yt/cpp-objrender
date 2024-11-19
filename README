@@ -1,0 +1,34 @@
+Ejes:
+rojo = eje x
+verde = eje y
+azul = eje z
+
+Teclas:
+Rotación (en un solo eje a la vez):
+z = + Velocidad Rotación eje y
+x = - Velocidad Rotación eje y
+c = - Velocidad Rotación eje x
+v = + Velocidad Rotación eje x
+b = + Velocidad Rotación eje z
+n = - Velocidad Rotación eje z
+Escala:
+e = + Escala eje x
+r = - Escala eje x
+t = + Escala eje y
+y = - Escala eje y
+u = + Escala eje z
+i = - Escala eje z
+Traslación (varios ejes a la vez):
+w = + Velocidad Traslación eje x
+s = - Velocidad Traslación eje x
+a = + Velocidad Traslación eje z
+d = - Velocidad Traslación eje z
+k = + Velocidad Traslación eje y
+l = - Velocidad Traslación eje y
+Movimiento de cámara (flechitas):
+<- = - eje z
+-> = + eje z
+up = - eje x
+down + eje x
+space = + eje y
+shift = - eje y

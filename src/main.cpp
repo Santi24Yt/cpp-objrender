@@ -31,7 +31,7 @@ int main (int argc, char *argv[])
   // objf.imprimir();
   objf.cerrar();
 
-  cout << "Modelo: " << archivo << endl;
+  cout << "Modelo: " << objf.filedir << endl;
   cout << "No. de vértices: " << objf.vertices.size() << endl;
   cout << "No. de caras: " << objf.caras.size() << endl;
 
@@ -241,6 +241,37 @@ int main (int argc, char *argv[])
             cam = Vector3(cam.x+1.0, cam.y, cam.z);
             look = Matrix4::lookAt(cam, centroCubo, Vector3(0, 1, 0));
             vista = Matrix4::multiply(look, persp);
+            break;
+          case sf::Keyboard::M:
+            if (objf.filedir == "Cube_Triangles.obj")
+            {
+              objf = Obj(archivo);
+              objf.abrir();
+              objf.leer();
+              // objf.imprimir();
+              objf.cerrar();
+              modelo1 = Modelo(&objf);
+            } else {
+              objf = Obj("Cube_Triangles.obj");
+              objf.abrir();
+              objf.leer();
+              // objf.imprimir();
+              objf.cerrar();
+              modelo1 = Modelo(&objf);
+            }
+
+            cout << "Modelo: " << objf.filedir << endl;
+            cout << "No. de vértices: " << objf.vertices.size() << endl;
+            cout << "No. de caras: " << objf.caras.size() << endl;
+
+            centroCuboPf = objf.centroProm();
+            centroCubo = Vector3(centroCuboPf.x, centroCuboPf.y, centroCuboPf.z);
+
+            cam = Vector3(centroCuboPf.x + objf.anchox() + 10, 2, 0);
+            look = Matrix4::lookAt(cam, centroCubo, Vector3(0, 1, 0));
+            persp = Matrix4::perspective(60, (float)img1.width/img1.height, 0, 100);
+            vista = Matrix4::multiply(look, persp);
+
             break;
           default:
             // window.close();
