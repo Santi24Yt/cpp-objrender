@@ -27,3 +27,17 @@ teclado o ratón para cambiar el ángulo de rotación, la posición de la
 cámara, cambiar el modelo a otro que ya esté precargado, etc.
 
 Para ejecución y compilación ver: `README`
+
+
+
+Se puede ver en el video como se leen y se muestran los modelos desde un archivo .obj,
+que despliega su cantidad de vértices y caras, que se ve la nube de puntos y el wireframe,
+que gira sobre el eje y y que la cámara automáticamente se ajusta al tamaño de modelo (en
+caso de modelos muy pequeños o muy grandes no es 100% preciso pero si se intenta ajustar \[ver código\])
+
+Adicionalmente se puede ver que solo se pintan las caras que ven hacia la cámara (los vértices si se pintan pero
+las líneas no, se pudede cambiar el código para que no pinte vértices en ningun caso).
+Se implemento una clase de Clipping (no es como tal el algoritmo que genera nuevos puntos) pero si permite
+que lo que no esté en pantalla no se calcule y evita que haya casos en los que se vean líneas extrañas.
+Finalmente se acepta la entrada del usuario para realizar distitntas funciones demostradas en el video.
+
