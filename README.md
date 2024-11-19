@@ -45,3 +45,6 @@ Se implemento una clase de Clipping (no es como tal el algoritmo que genera nuev
 que lo que no esté en pantalla no se calcule y evita que haya casos en los que se vean líneas extrañas.
 Finalmente se acepta la entrada del usuario para realizar distitntas funciones demostradas en el video.
 
+También se añadió una opción de optimización la cuál hace que no se calculen todos los vértices y caras
+del modelo ya que puede ser muy pesado para algunas computadoras, se va saltando vértices y caras de 2^n,
+por ej. optimización 1 calcula uno si y una no, optimización 2 calcula 1 si 3 no, etc.
