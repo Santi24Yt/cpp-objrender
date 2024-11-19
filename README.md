@@ -30,6 +30,10 @@ Para ejecución y compilación ver: `README`
 
 
 
+https://github.com/user-attachments/assets/8b66c1cb-c2b4-4cdc-8032-8a71865b13b5
+
+
+
 Se puede ver en el video como se leen y se muestran los modelos desde un archivo .obj,
 que despliega su cantidad de vértices y caras, que se ve la nube de puntos y el wireframe,
 que gira sobre el eje y y que la cámara automáticamente se ajusta al tamaño de modelo (en
