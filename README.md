@@ -1,4 +1,5 @@
-# Graficación por Computadora Proyecto1
+# Graficación por Computadora Proyecto 1
+## Wireframe de un .obj
 
 Repositorio: https://github.com/Santi24Yt/cpp-objrender/tree/main
 
